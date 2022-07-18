@@ -1,6 +1,7 @@
 import express from 'express'
 import * as http from 'http'
 import routes from './routes'
+import cors from 'cors'
 
 export class Server {
   private readonly _port: string
@@ -12,6 +13,7 @@ export class Server {
     this._app = express()
     this._app.use(express.json())
     this._app.use(express.urlencoded({ extended: false }))
+    this._app.use(cors())
     this._app.use(routes)
   }
 

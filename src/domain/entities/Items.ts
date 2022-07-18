@@ -15,5 +15,6 @@ export interface Items {
     picture: string
     condition: string
     free_shipping: boolean
+    state_name: string
   }>
 }

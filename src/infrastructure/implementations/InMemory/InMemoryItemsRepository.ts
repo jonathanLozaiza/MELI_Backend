@@ -96,11 +96,10 @@ export class InMemoryItemsRepository implements ItemsRepository {
           condition: itemData.condition as string,
           free_shipping: itemData.shipping.free_shipping,
           sold_quantity: itemData.sold_quantity as number,
-          description: itemDescription.text_plane as string,
+          description: itemDescription.plain_text as string,
           path_from_root: categoryData.path_from_root.map((p: any) => p.name)
         }
       }
-
       return item
     } catch (error: any) {
       throw new Exception(error.message)
