@@ -5,10 +5,16 @@ import axios from 'axios'
 import { Item } from '@domain/entities/Item'
 
 export class InMemoryItemsRepository implements ItemsRepository {
+  /**
+   * @param {string} q parameter to filter the response results in the meli api
+   * @memberof ItemsRepository
+   * @description this function returns an object with at most 4 items related to the search parameter q
+   * @returns Items | []
+   */
   async getItemsByQuery (q: string): Promise<Items | []> {
     try {
       // retrieve items
-      const { data }: any = await axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${q}`)
+      const { data }: any = await axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${q}&limit=4`)
 
       // validate data
       if (data === undefined || data === {}) {
@@ -23,9 +29,8 @@ export class InMemoryItemsRepository implements ItemsRepository {
       const { data: siteInfo } = await axios.get(`https://api.mercadolibre.com/sites/${data.site_id}`)
 
       // retrieve item images
-      const arr = data.results.slice(0, 4)
       const normalizedData = []
-      for (const item of arr) {
+      for (const item of data.results) {
         const { data: { pictures } } = await axios.get(`https://api.mercadolibre.com/items/${item.id}`)
         normalizedData.push({
           id: item.id as string,
@@ -55,6 +60,12 @@ export class InMemoryItemsRepository implements ItemsRepository {
     }
   }
 
+  /**
+   * @param {string} id item id
+   * @memberof ItemsRepository
+   * @description get item by id
+   * @returns Item | null
+   */
   async getById (id: string): Promise<Item | null> {
     try {
       // validate the type and content of the id
