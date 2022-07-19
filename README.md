@@ -6,7 +6,7 @@ Implemented under a hexagonal architecture
 
 ## API Documentation
 ```
-Implemented with swagger API.
+Implemented with swagger API (all html and css code is used here).
 Deploy the api rest and in your browser enter route:  http:localhost:3000/documentation
 ```
 
