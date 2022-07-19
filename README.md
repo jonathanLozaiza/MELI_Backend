@@ -10,21 +10,12 @@ Implemented with swagger API.
 Deploy the api rest and in your browser enter route:  http:localhost:3000/documentation
 ```
 
-## Install Vue CLI
-```
-npm install -g @vue/cli
-
-versions: 
-  @vue/cli 5.0.8
-  node v16.13.0
-```
-
 ## Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compiles and hot-reloads for development (API REST)
 ```
 npm run start-rest-app
 ```
