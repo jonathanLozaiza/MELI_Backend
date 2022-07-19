@@ -6,7 +6,8 @@ Implemented under a hexagonal architecture
 
 ## API Documentation
 ```
-Deploy the api rest and in your browser enter path ###/documentation
+Implemented with swagger API.
+Deploy the api rest and in your browser enter route:  http:localhost:3000/documentation
 ```
 
 ## Install Vue CLI
@@ -35,5 +36,6 @@ npm run start-console-app
 
 ### Run tests
 ```
+Implemented with jest
 npm run test
 ```
