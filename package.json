@@ -7,7 +7,7 @@
     "tsc": "tsc",
     "start-console-app": "ts-node-dev ./src/infrastructure/driving-adapters/console/console.ts",
     "start-rest-app": "ts-node-dev ./src/infrastructure/driving-adapters/api-rest/start.ts",
-    "test": "test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -24,17 +24,38 @@
     "dotenv": "^14.3.2",
     "express": "^4.17.2",
     "node-fetch": "^3.2.8",
+    "swagger-jsdoc": "^6.2.1",
+    "swagger-ui-express": "^4.5.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
+    "@types/jest": "^28.1.6",
     "@types/node": "^17.0.13",
+    "@types/swagger-jsdoc": "^6.0.1",
+    "@types/swagger-ui-express": "^4.1.3",
     "@types/uuid": "^8.3.4",
     "eslint": "^7.32.0",
     "eslint-config-standard-with-typescript": "^21.0.1",
+    "jest": "^28.1.3",
+    "ts-jest": "^28.0.7",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.5.5"
+  },
+  "jest":{
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/",
+      "/dist/",
+      "/src/application/",
+      "/src/domain/",
+      "/src/infrastructure/driven-adapters/",
+      "/src/infrastructure/implementations/"
+    ]
   },
   "_moduleAliases": {
     "@infrastructure": "src/infrastructure",

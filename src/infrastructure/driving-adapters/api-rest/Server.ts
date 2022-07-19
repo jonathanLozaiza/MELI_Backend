@@ -2,6 +2,8 @@ import express from 'express'
 import * as http from 'http'
 import routes from './routes'
 import cors from 'cors'
+import swaggerUi from 'swagger-ui-express'
+import swaggerSetup from './docs/swagger'
 
 export class Server {
   private readonly _port: string
@@ -15,6 +17,7 @@ export class Server {
     this._app.use(express.urlencoded({ extended: false }))
     this._app.use(cors())
     this._app.use(routes)
+    this._app.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerSetup))
   }
 
   async listen (): Promise<void> {
